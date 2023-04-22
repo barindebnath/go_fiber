@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 
+	controller "github.com/barindebnath/gofiber/controllers"
 	"github.com/barindebnath/gofiber/router"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -35,7 +36,7 @@ func run() error {
 		return fiber.ErrUpgradeRequired
 	})
 
-	router.WSRunHub()
+	go controller.WSRunHub()
 
 	// add routes
 	router.Router(app)
